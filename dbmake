@@ -12,8 +12,7 @@ echo "done"
 if [ -z "$asuppk_srv_ip" ];
 then
 echo "Didn't get any ip from you. Looking for IPv4 Address of your PC"
-export asuppk_srv_ip=$SSH_CLIENT | awk '{ print $1}'
-export asuppk_srv_ip="$asuppk_srv_ip;"
+export asuppk_srv_ip="$(echo $SSH_CLIENT | awk '{ print $1}');"
 fi
 
 echo "trying to add '$asuppk_srv_ip' to server-addr.txt"
