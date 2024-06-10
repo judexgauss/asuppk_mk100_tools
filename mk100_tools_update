@@ -1,0 +1,4 @@
+#!/bin/bash
+cd /opt/asuppk_mk100_tools/
+git init
+git pull
