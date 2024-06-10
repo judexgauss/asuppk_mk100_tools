@@ -2,4 +2,19 @@
 
 export asuppk_srv_ip=$1
 
-echo $asuppk_srv_ip
+echo "trying to delete databases: asop, esk, pfr, mkassir"
+rm /opt/MobileBooking/ASOP/*.db
+rm /opt/MobileBooking/ESK/*.db
+rm /opt/MobileBooking/PFR/*.db
+rm /opt/MobileBooking/mkassir.db
+echo "done"
+
+if [ -z ${var+x} ];
+then echo "var is unset";
+else echo "var is set to '$var'";
+fi
+
+echo "trying to add '$asuppk_srv_ip' to server-addr.txt"
+echo '$asuppk_srv_ip' > /opt/MobileBooking/server-addr.txt
+
+echo "done"
