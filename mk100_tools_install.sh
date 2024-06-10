@@ -1,4 +1,5 @@
 #!/bin/bash
+chmod +x /opt/asuppk_mk100_tools/*
 
 echo >> /root/.bashrc
 echo 'export PATH=$PATH:/opt/asuppk_mk100_tools' >> /root/.bashrc
