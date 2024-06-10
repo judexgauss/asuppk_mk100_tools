@@ -9,7 +9,7 @@ rm /opt/MobileBooking/PFR/*.db
 rm /opt/MobileBooking/mkassir.db
 echo "done"
 
-if [ -z ${asuppk_srv_ip+x} ];
+if [ -z "$asuppk_srv_ip" ];
 then echo "asuppk_srv_ip is unset";
 else echo "asuppk_srv_ip is set to '$asuppk_srv_ip'";
 fi
