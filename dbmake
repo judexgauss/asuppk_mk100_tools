@@ -9,9 +9,9 @@ rm /opt/MobileBooking/PFR/*.db
 rm /opt/MobileBooking/mkassir.db
 echo "done"
 
-if [ -z ${var+x} ];
-then echo "var is unset";
-else echo "var is set to '$var'";
+if [ -z ${asuppk_srv_ip+x} ];
+then echo "asuppk_srv_ip is unset";
+else echo "asuppk_srv_ip is set to '$asuppk_srv_ip'";
 fi
 
 echo "trying to add '$asuppk_srv_ip' to server-addr.txt"
