@@ -15,6 +15,6 @@ else echo "var is set to '$var'";
 fi
 
 echo "trying to add '$asuppk_srv_ip' to server-addr.txt"
-echo '$asuppk_srv_ip' > /opt/MobileBooking/server-addr.txt
+echo $asuppk_srv_ip > /opt/MobileBooking/server-addr.txt
 
 echo "done"
