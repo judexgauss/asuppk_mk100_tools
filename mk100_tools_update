@@ -1,4 +1,6 @@
 #!/bin/bash
 cd /opt/asuppk_mk100_tools/
 git init
+git clean -df
+git reset --hard
 git pull
