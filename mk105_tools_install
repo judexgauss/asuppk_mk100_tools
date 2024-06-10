@@ -1,0 +1,9 @@
+#!/bin/bash
+chmod +x /opt/asuppk_mk105_tools/*
+
+echo >> /root/.bashrc
+echo 'export PATH=$PATH:/opt/asuppk_mk105_tools' >> /root/.bashrc
+
+rm /opt/asuppk_mk105_tools/mk105_tools_install
+
+echo "Installation done"
