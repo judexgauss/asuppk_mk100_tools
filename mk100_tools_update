@@ -4,4 +4,8 @@ git init
 git clean -df
 git reset --hard
 git pull
+
+chmod +x /opt/asuppk_mk100_tools/*
+rm /opt/asuppk_mk100_tools/mk100_tools_install
+
 echo "Update done"
