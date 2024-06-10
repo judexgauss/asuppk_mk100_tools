@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export asuppk_srv_ip=$1
+
+echo $asuppk_srv_ip
