@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ls /opt/asuppk_mk105_tools/ -p | grep -v /
