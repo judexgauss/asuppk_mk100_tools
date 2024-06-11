@@ -32,7 +32,7 @@ then
 	echo "$(tput setaf 2)Certificate installation is complete$(tput sgr0)"
 	echo
 
-	echo "$(tput setaf 3)You should delete old client cert if it exists. Showing installed clients certs at the local user's storage...$(tput sgr0)"
+	echo "$(tput setaf 3)You should delete old asuppk client cert if it exists. Showing installed clients certs at the local user's storage...$(tput sgr0)"
 	DOTNET_ROOT=/root/dotnet /root/.dotnet/tools/certificate-tool list
 	echo "$(tput setaf 3)You can delete cert with command$(tput sgr0):" 'crtdelete THUMBPRINT_STRING'
 	echo "$(tput setaf 3)Paste specific thumbprint instead of$(tput sgr0)" 'THUMBPRINT_STRING'
