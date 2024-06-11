@@ -2,6 +2,8 @@
 
 set -e
 
+export crt_path=$1
+
 if [ -n "$crt_path" ];
 then
 
