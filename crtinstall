@@ -23,10 +23,12 @@ then
 	
 	echo "$(tput setaf 6)Updating the system storage of root certificates...$(tput sgr0)"
 	update-ca-certificates -v
+	echo
 
 	echo "$(tput setaf 6)Copying files to MobileBooking: cl-GUID.pfx, pwd.txt, LOCALE_asppb_authority.cer$(tput sgr0)"
 	cp $crt_path/*_asppb_authority.cer $crt_path/pwd.txt $crt_path/cl-*.pfx /opt/MobileBooking
 	echo
+	
 	echo "$(tput setaf 2)Certificate installation is complete$(tput sgr0)"
 	echo
 
