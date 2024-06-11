@@ -2,7 +2,7 @@
 
 export crt_path=$1
 
-if ![ -z "$crt_path" ];
+if [ -n "$crt_path" ];
 then
 
 	echo "$(tput setaf 2)Showing the certificate...$(tput sgr0)"
@@ -38,6 +38,6 @@ then
 
 else
 
-	echo "Specify the path to folder with certificates!"
+	echo "$(tput setaf 1)Specify the path to certificates folder! $(tput sgr0)"
 
 fi
