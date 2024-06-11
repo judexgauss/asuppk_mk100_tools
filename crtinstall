@@ -1,0 +1,43 @@
+#!/bin/bash
+
+export crt_path=$1
+
+if [ -z "$asuppk_srv_ip" ];
+then
+
+	echo "$(tput setaf 2)Showing the certificate...$(tput sgr0)"
+	openssl x509 -inform DER -in $crt_path/*_asppb_authority.cer -text -noout
+	echo
+
+	echo "$(tput setaf 2)Converting certificate from DER format to CRT format (binary x509 encoded in base64 encoding)...$(tput sgr0)"
+	openssl x509 -inform DER -in $crt_path/*_asppb_authority.cer -out $crt_path/*_asppb_authority.crt
+	echo
+	
+	echo "$(tput setaf 2)Showing the converted certificate...$(tput sgr0)"
+	openssl x509 -in $crt_path/*_asppb_authority.crt -text -noout
+	echo
+	
+	echo "$(tput setaf 2)Copying root certificate to certificate import folder (/usr/local/share/ca-certificates/)...$(tput sgr0)"
+	cp $crt_path/*_asppb_authority.crt /usr/local/share/ca-certificates/
+	echo
+	
+	echo "$(tput setaf 2)Updating the system storage of root certificates...$(tput sgr0)"
+	update-ca-certificates -v
+	echo "done"
+
+	echo "$(tput setaf 2)Copying files to MobileBooking: cl-GUID.pfx, pwd.txt, LOCALE_asppb_authority.cer$(tput sgr0)"
+	cp $crt_path/*_asppb_authority.cer $crt_path/pwd.txt $crt_path/cl-*.pfx /opt/MobileBooking
+	echo "done"
+
+	echo "$(tput setaf 2)You should delete old client cert if it exists. Showing installed clients certs in the local user's storage...$(tput sgr0)"
+	DOTNET_ROOT=/root/dotnet /root/.dotnet/tools/certificate-tool list
+	echo "$(tput setaf 2)You can delete cert with command$(tput sgr0):" 'DOTNET_ROOT=/root/dotnet /root/.dotnet/tools/certificate-tool remove --thumbprint THUMBPRINT_STRING'
+	echo "$(tput setaf 2)Paste specific thumbprint instead of$(tput sgr0)" 'THUMBPRINT_STRING'
+	echo
+	echo "$(tput setaf 2)Don't forget to set$(tput sgr0) CipherString = DEFAULT@SECLEVEL=1$(tput setaf 2) at $(tput sgr0)/etc/ssl/openssl.cnf"
+
+else
+
+	echo "Specify the path to folder with certificates!"
+
+fi
