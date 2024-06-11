@@ -11,7 +11,6 @@ then
 
 	echo "$(tput setaf 2)Converting certificate from DER format to CRT format (binary x509 encoded in base64 encoding)...$(tput sgr0)"
 	openssl x509 -inform DER -in $crt_path/*_asppb_authority.cer -out $crt_path/*_asppb_authority.crt
-	echo
 	
 	echo "$(tput setaf 2)Showing the converted certificate...$(tput sgr0)"
 	openssl x509 -in $crt_path/*_asppb_authority.crt -text -noout
@@ -19,15 +18,14 @@ then
 	
 	echo "$(tput setaf 2)Copying root certificate to certificate import folder (/usr/local/share/ca-certificates/)...$(tput sgr0)"
 	cp $crt_path/*_asppb_authority.crt /usr/local/share/ca-certificates/
-	echo
 	
 	echo "$(tput setaf 2)Updating the system storage of root certificates...$(tput sgr0)"
 	update-ca-certificates -v
-	echo "done"
 
 	echo "$(tput setaf 2)Copying files to MobileBooking: cl-GUID.pfx, pwd.txt, LOCALE_asppb_authority.cer$(tput sgr0)"
 	cp $crt_path/*_asppb_authority.cer $crt_path/pwd.txt $crt_path/cl-*.pfx /opt/MobileBooking
-	echo "done"
+	echo "$(tput setaf 2)Certificate installation is complete$(tput sgr0)"
+	echo
 
 	echo "$(tput setaf 2)You should delete old client cert if it exists. Showing installed clients certs in the local user's storage...$(tput sgr0)"
 	DOTNET_ROOT=/root/dotnet /root/.dotnet/tools/certificate-tool list
