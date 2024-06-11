@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 export THUMBPRINT=$1
 
 DOTNET_ROOT=/root/dotnet /root/.dotnet/tools/certificate-tool remove --thumbprint $THUMBPRINT
