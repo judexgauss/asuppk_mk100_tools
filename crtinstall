@@ -21,7 +21,7 @@ then
 	echo "$(tput setaf 6)Copying root certificate to certificate import folder (/usr/local/share/ca-certificates/)...$(tput sgr0)"
 	cp $crt_path/*_asppb_authority.crt /usr/local/share/ca-certificates/
 	
-	echo "$(tput setaf 6)Updating the system storage of root certificates...$(tput sgr0)"
+	echo "$(tput setaf 6)Updating the root certificates system storage...$(tput sgr0)"
 	update-ca-certificates -v
 	echo
 
