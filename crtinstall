@@ -2,7 +2,7 @@
 
 export crt_path=$1
 
-if [ -z "$asuppk_srv_ip" ];
+if [ -z "$crt_path" ];
 then
 
 	echo "$(tput setaf 2)Showing the certificate...$(tput sgr0)"
