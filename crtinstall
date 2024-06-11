@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 export crt_path=$1
 
 if [ -n "$crt_path" ];
@@ -8,7 +10,7 @@ then
 	echo "$(tput setaf 2)Showing the certificate...$(tput sgr0)"
 	openssl x509 -inform DER -in $crt_path/*_asppb_authority.cer -text -noout
 	echo
-
+	
 	echo "$(tput setaf 2)Converting certificate from DER format to CRT format (binary x509 encoded in base64 encoding)...$(tput sgr0)"
 	openssl x509 -inform DER -in $crt_path/*_asppb_authority.cer -out $crt_path/*_asppb_authority.crt
 	
