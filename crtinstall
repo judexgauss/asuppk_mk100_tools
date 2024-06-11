@@ -4,6 +4,13 @@ set -e
 
 export crt_path=$1
 
+while getopts ":l" opt; do
+  case $opt in
+    l) is_execute=true; echo $is_execute ;;
+    \?) is_execute=false echo $is_execute ;;
+  esac
+done
+
 if [ -n "$crt_path" ];
 then
 
