@@ -37,7 +37,7 @@ then
 	echo "$(tput setaf 3)You can delete cert with command$(tput sgr0):" 'crtdelete THUMBPRINT_STRING'
 	echo "$(tput setaf 3)Paste specific thumbprint instead of$(tput sgr0)" 'THUMBPRINT_STRING'
 	echo
-	echo "$(tput setaf 3)Don't forget to set$(tput sgr0) CipherString = DEFAULT@SECLEVEL=1$(tput setaf 3) at $(tput sgr0)/etc/ssl/openssl.cnf"
+	echo "$(tput setaf 3)Also don't forget to set$(tput sgr0) CipherString = DEFAULT@SECLEVEL=1$(tput setaf 3) at $(tput sgr0)/etc/ssl/openssl.cnf"
 
 else
 

@@ -7,4 +7,4 @@ export THUMBPRINT=$1
 DOTNET_ROOT=/root/dotnet /root/.dotnet/tools/certificate-tool remove --thumbprint $THUMBPRINT
 
 echo
-echo "$(tput setaf 3)Don't forget to set$(tput sgr0) CipherString = DEFAULT@SECLEVEL=1$(tput setaf 3) at $(tput sgr0)/etc/ssl/openssl.cnf"
+echo "$(tput setaf 3)Also don't forget to set$(tput sgr0) CipherString = DEFAULT@SECLEVEL=1$(tput setaf 3) at $(tput sgr0)/etc/ssl/openssl.cnf"
