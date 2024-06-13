@@ -1,4 +1,7 @@
 #!/bin/bash
+
+set -e
+
 cd /opt/asuppk_mk105_tools/
 git init
 git clean -df
