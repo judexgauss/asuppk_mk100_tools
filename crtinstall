@@ -6,9 +6,25 @@ export crt_path=$1
 
 if [ -n "$crt_path" ];
 then
+
+	echo "$(tput setaf 6)Showing the certificate info...$(tput sgr0)"
+	openssl x509 -inform DER -in $crt_path/*_asppb_authority.cer -text -noout
+	echo
+	
+	echo "$(tput setaf 6)Converting certificate from DER format to CRT format (binary x509 encoded in base64 encoding)...$(tput sgr0)"
+	
+	full_filename=$(basename $crt_path/*_asppb_authority.cer)
+	extension="${full_filename##*.}"
+	filename="${full_filename%.*}"
+	
+	openssl x509 -inform DER -in $crt_path/$full_filename -out $crt_path/$filename.crt
+	
+	echo "$(tput setaf 6)Showing the converted certificate info...$(tput sgr0)"
+	openssl x509 -in $crt_path/$filename.crt -text -noout
+	echo
 	
 	echo "$(tput setaf 6)Copying root certificate to certificate import folder (/usr/local/share/ca-certificates/)...$(tput sgr0)"
-	cp $crt_path/*_asppb_authority.crt /usr/local/share/ca-certificates/
+	cp $crt_path/$filename.crt /usr/local/share/ca-certificates/
 	
 	echo "$(tput setaf 6)Updating the root certificates system storage...$(tput sgr0)"
 	update-ca-certificates -v
